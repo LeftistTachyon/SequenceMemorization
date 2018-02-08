@@ -16,7 +16,7 @@ import javax.swing.UIManager;
 public class SequenceMemorization {
     public static void main(String[] args) throws FileNotFoundException {
         Menu m = Menu.run();
-        File file = new File("src/sequencememorization/data.in");
+        File file = new File("src/sequencememorization/original.in");
         Scanner fileInput = new Scanner(file);
         boolean wrong;
         while(fileInput.hasNextLine()) {
@@ -44,6 +44,7 @@ public class SequenceMemorization {
         }
         m.setText("");
         //m.setTextAreaVisible(false);
+        fileInput = new Scanner(file);
         while(fileInput.hasNextLine()) {
             String[] data = fileInput.nextLine().split(" ");
             for(String s:data) {
@@ -201,7 +202,7 @@ class Menu extends JFrame {
         textFieldSubmitted = 0;
         while(textFieldSubmitted != 1) {
             try {
-                Thread.sleep(250);
+                Thread.sleep(10);
             } catch (InterruptedException ex) {
                 System.err.println("Interrupted");
                 System.exit(1);
